@@ -1,9 +1,9 @@
-
 #include "OOP_Light\OOP_Light.h"
 
 // Initialize functions
-TFE_fnc_onPlayerConnected = compile preprocessFileLineNumbers "TaskForceEnforcer\onPlayerConnected.sqf";
-TFE_fnc_onPlayerDisconnected = compile preprocessFileLineNumbers "TaskForceEnforcer\onPlayerDisconnected.sqf";
+TFE_fnc_onPlayerConnected = compileFinal preprocessFileLineNumbers "TaskForceEnforcer\onPlayerConnected.sqf";
+TFE_fnc_handlePlayerConnected = compileFinal preprocessFileLineNumbers "TaskForceEnforcer\handlePlayerConnected.sqf";
+TFE_fnc_onPlayerDisconnected = compileFinal preprocessFileLineNumbers "TaskForceEnforcer\onPlayerDisconnected.sqf";
 
 // Initialize event handlers
 addMissionEventHandler ["PlayerConnected", TFE_fnc_onPlayerConnected];

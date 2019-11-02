@@ -1,7 +1,7 @@
 // You can change these settings
 
 // The array of TS3 server names where the client must connect
-private _TS3ServerNames = ["Antistasi Official 100 Slot", "Antistasi Official"];
+private _TS3ServerNames = ["Antistasi Official"];
 
 // Update interval in seconds for clients who have not connected to the right TS3 server
 private _clientLockedUpdateInterval = 2; 
@@ -13,7 +13,7 @@ private _clientUnlockedUpdateInterval = 8;
 private _timerInterval = 3;
 
 // Client will be shown which TS3 address to connect to
-private _TS3ServerAddressDisplay = "ts136.nitrado.net:10900";
+private _TS3ServerAddressDisplay = "206.221.183.138:9987";
 
 // The message to show to the client
 private _clientMessageDisplay = "Hello and welcome to Antistasi official server!\n\n
