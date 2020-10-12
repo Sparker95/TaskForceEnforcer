@@ -122,14 +122,14 @@ CLASS("TFEClientData", "")
 		private _owner = GET_VAR(_thisObject, "owner");
 		[[_messageText, _TS3ServerAddressDisplay], {
 			params ["_messageText", "_TS3ServerAddressDisplay"];
-			systemChat "Your controls are now locked!";
+			systemChat "TFAR connection not active; your controls are now locked!";
 			
 			private _TFARAddonEnabled = !isNil "TFAR_fnc_isTeamSpeakPluginEnabled";
 			private _TFARPluginEnabled = false;
 			if (_TFARAddonEnabled) then { _TFARPluginEnabled = call TFAR_fnc_isTeamSpeakPluginEnabled; };
 			private _text = format [_messageText,
 									_TS3ServerAddressDisplay, ["disabled", "enabled"] select _TFARAddonEnabled, ["disabled", "enabled"] select _TFARPluginEnabled];
-			titleText [_text, "BLACK", 1, true, false];
+			"TFE_screenBlock" cutText [_text, "BLACK", 1, true, false];
 			player enableSimulation false;
 		}] remoteExecCall ["call", _owner];
 		SET_VAR(_thisObject, "controlsLocked", true);
@@ -140,9 +140,8 @@ CLASS("TFEClientData", "")
 		params [["_thisObject", "", [""]]];
 		private _owner = GET_VAR(_thisObject, "owner");
 		[[], {
-			systemChat "Your controls are now unlocked!";
-			
-			titleText ["", "PLAIN", 0.000001, true, false];
+			systemChat "TFAR connection detected; your controls are now unlocked!";
+			"TFE_screenBlock" cutFadeOut 1;
 			player enableSimulation true;
 		}] remoteExecCall ["call", _owner];
 		private _owner = GET_VAR(_thisObject, "owner");
